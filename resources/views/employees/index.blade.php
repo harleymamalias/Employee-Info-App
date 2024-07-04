@@ -17,7 +17,11 @@
             <p>Name: {{ $employee->name }}</p>
             <p>Email: {{ $employee->email }}</p>
             @if($employee->photo)
-            <img src="{{ Storage::disk('employee_photos')->url($employee->photo) }}" alt="{{ $employee->name }}" width="100">
+            <p>Photo URL: {{ Storage::disk('employee_photos')->url($employee->photo) }}</p>
+            <a href="{{ Storage::disk('employee_photos')->url($employee->photo) }}" target="_blank">
+                <img src="{{ Storage::disk('employee_photos')->url($employee->photo) }}" alt="{{ $employee->name }}" width="100">
+            </a>
+            <br>
             @endif
             <br>
             <a href="{{ route('employees.show', $employee->id) }}">View Details</a>
