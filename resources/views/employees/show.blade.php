@@ -10,8 +10,9 @@
     <p>Name: {{ $employee->name }}</p>
     <p>Email: {{ $employee->email }}</p>
     @if($employee->photo)
-    <img src="{{ Storage::disk('employee_photos')->url($employee->photo) }}" alt="{{
-$employee->name }}" width="200">
+    <p>Photo URL: <a href="{{ Storage::disk('employee_photos')->url($employee->photo) }}">{{ $employee->name }}'s Photo</a></p>
+    @else
+    <p>No photo uploaded.</p>
     @endif
     <br>
     <a href="{{ route('employees.index') }}">Back to Employees</a>
